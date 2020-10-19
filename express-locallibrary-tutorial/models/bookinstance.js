@@ -22,6 +22,7 @@ BookInstanceSchema.virtual("url").get(function () {
 
 // Virtual for nicefying date
 BookInstanceSchema.virtual("due_back_formatted").get(function () {
+  if (!this.due_back) return "";
   return DateTime.fromJSDate(this.due_back).toLocaleString(DateTime.DATE_MED);
 });
 
