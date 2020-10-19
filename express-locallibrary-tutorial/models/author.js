@@ -28,6 +28,9 @@ AuthorSchema.virtual("name").get(function () {
 
 // Virtual for author's lifespan
 AuthorSchema.virtual("lifespan").get(function () {
+  if (!this.date_of_death) {
+    return "Still alive today.";
+  }
   return (
     this.date_of_death.getYear() - this.date_of_birth.getYear()
   ).toString();
