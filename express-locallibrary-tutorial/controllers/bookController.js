@@ -88,7 +88,6 @@ exports.book_create_get = (req, res, next) => {
   async.parallel(
     {
       authors: (callback) => {
-        console.log("create book, authors:" + callback);
         Author.find(callback);
       },
       genres: (callback) => {
@@ -226,7 +225,6 @@ exports.book_delete_get = function (req, res, next) {
 };
 
 // Handle book delete on POST.
-// TODO:
 exports.book_delete_post = function (req, res, next) {
   async.parallel(
     {
